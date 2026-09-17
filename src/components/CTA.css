@@ -1,0 +1,288 @@
+.cta-section {
+  position: relative;
+  min-height: 100vh;
+  background:
+    radial-gradient(
+      circle at 75% 45%,
+      rgba(255, 255, 255, 0.055),
+      transparent 35%
+    ),
+    #050505;
+  color: #fff;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.cta-container {
+  position: relative;
+  z-index: 2;
+
+  width: min(1400px, 88vw);
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 1fr 0.85fr;
+  gap: 120px;
+
+  padding: 150px 0;
+}
+
+
+/* ---------------- LEFT ---------------- */
+
+.cta-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cta-eyebrow {
+  display: block;
+
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+
+  opacity: 0.5;
+
+  margin-bottom: 35px;
+}
+
+.cta-copy h2 {
+  margin: 0;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: clamp(55px, 7vw, 105px);
+  font-weight: 400;
+  line-height: 0.91;
+
+  letter-spacing: -0.055em;
+}
+
+.cta-copy h2 span {
+  opacity: 0.35;
+}
+
+.cta-copy p {
+  max-width: 430px;
+
+  margin-top: 45px;
+
+  font-size: 14px;
+  line-height: 1.8;
+
+  color: rgba(255, 255, 255, 0.52);
+}
+
+.cta-meta {
+  display: flex;
+  justify-content: space-between;
+
+  max-width: 430px;
+
+  margin-top: 65px;
+
+  font-size: 10px;
+  letter-spacing: 0.22em;
+
+  color: rgba(255, 255, 255, 0.38);
+}
+
+
+/* ---------------- FORM ---------------- */
+
+.cta-form {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 28px;
+}
+
+.cta-field {
+  position: relative;
+
+  padding-bottom: 15px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+
+  transition: border-color 0.35s ease;
+}
+
+.cta-field.active {
+  border-bottom-color: rgba(255, 255, 255, 0.75);
+}
+
+.cta-field label {
+  display: block;
+
+  margin-bottom: 9px;
+
+  font-size: 9px;
+  letter-spacing: 0.24em;
+
+  color: rgba(255, 255, 255, 0.38);
+}
+
+.cta-field input,
+.cta-field select,
+.cta-field textarea {
+  width: 100%;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  color: #fff;
+
+  font-family: inherit;
+  font-size: 15px;
+}
+
+.cta-field input::placeholder,
+.cta-field textarea::placeholder {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.cta-field select {
+  appearance: none;
+  cursor: pointer;
+}
+
+.cta-field select option {
+  background: #111;
+  color: #fff;
+}
+
+.cta-message textarea {
+  min-height: 75px;
+
+  resize: none;
+
+  line-height: 1.6;
+}
+
+
+/* ---------------- BUTTON ---------------- */
+
+.cta-submit {
+  margin-top: 18px;
+
+  width: 100%;
+  min-height: 68px;
+
+  padding: 0 25px;
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 0;
+
+  background: rgba(255, 255, 255, 0.96);
+
+  color: #050505;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  cursor: pointer;
+
+  font-size: 10px;
+  letter-spacing: 0.2em;
+
+  transition:
+    background 0.4s ease,
+    color 0.4s ease,
+    transform 0.4s ease;
+}
+
+.cta-submit:hover {
+  background: transparent;
+  color: #fff;
+
+  transform: translateY(-3px);
+}
+
+.cta-arrow {
+  font-size: 20px;
+  letter-spacing: 0;
+}
+
+
+/* ---------------- GLOW ---------------- */
+
+.cta-glow {
+  position: absolute;
+
+  width: 500px;
+  height: 500px;
+
+  right: -220px;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.07),
+    transparent 68%
+  );
+
+  filter: blur(20px);
+
+  pointer-events: none;
+}
+
+
+/* ---------------- MOBILE ---------------- */
+
+@media (max-width: 900px) {
+
+  .cta-container {
+    grid-template-columns: 1fr;
+
+    gap: 80px;
+
+    padding: 110px 0;
+  }
+
+  .cta-copy h2 {
+    font-size: clamp(52px, 15vw, 85px);
+  }
+
+  .cta-copy p {
+    margin-top: 30px;
+  }
+
+  .cta-meta {
+    margin-top: 40px;
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .cta-container {
+    width: 86vw;
+    padding: 90px 0;
+  }
+
+  .cta-copy h2 {
+    font-size: 48px;
+  }
+
+  .cta-form {
+    gap: 24px;
+  }
+
+  .cta-submit {
+    min-height: 62px;
+    font-size: 9px;
+  }
+
+}

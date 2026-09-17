@@ -1,0 +1,596 @@
+/* =========================================
+   AMG — PREMIUM PERFORMANCE
+========================================= */
+
+.amg-section {
+  position: relative;
+
+  width: 100%;
+  min-height: 100vh;
+
+  background: #000;
+
+  color: #fff;
+
+  overflow: hidden;
+
+  isolation: isolate;
+
+  cursor: none;
+}
+
+
+/* =========================================
+   ATMOSPHERIC RED LIGHT
+========================================= */
+
+.amg-light {
+  position: absolute;
+
+  width: 55vw;
+  height: 55vw;
+
+  left: var(--amg-x);
+  top: var(--amg-y);
+
+  transform: translate(-50%, -50%);
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(150, 0, 0, 0.18) 0%,
+      rgba(100, 0, 0, 0.08) 32%,
+      transparent 70%
+    );
+
+  filter: blur(25px);
+
+  pointer-events: none;
+
+  z-index: 0;
+
+  transition:
+    left 0.5s cubic-bezier(0.2, 0.7, 0, 1),
+    top 0.5s cubic-bezier(0.2, 0.7, 0, 1);
+}
+
+
+/* =========================================
+   GIANT AMG BACKGROUND
+========================================= */
+
+.amg-giant-text {
+  position: absolute;
+
+  left: 50%;
+  top: 45%;
+
+  transform:
+    translate(-50%, -50%)
+    translateX(
+      calc((var(--amg-x) - 50%) * -0.08)
+    );
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 55px;
+
+  line-height: 0.75;
+
+  font-weight: 900;
+
+  letter-spacing: -0.09em;
+
+  color: rgba(255, 255, 255, 0.035);
+
+  user-select: none;
+
+  white-space: nowrap;
+
+  z-index: 1;
+
+  transition: transform 0.35s ease;
+}
+
+
+/* =========================================
+   TOP INFORMATION
+========================================= */
+
+.amg-top {
+  position: absolute;
+
+  top: 42px;
+  left: 6vw;
+  right: 6vw;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  z-index: 10;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 9px;
+
+  letter-spacing: 0.22em;
+
+  color: rgba(255, 255, 255, 0.42);
+}
+
+
+/* =========================================
+   MAIN VISUAL
+========================================= */
+
+.amg-visual {
+  position: absolute;
+  width: 78vw;
+  height: 72vh;
+  left: 75%;
+  top: 51%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  overflow: visible;
+  pointer-events: none;
+}
+/* =========================================
+   CAR
+========================================= */
+
+.amg-car {
+  position: absolute;
+
+  inset: 0;
+
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+
+  transform:
+    scale(1.02)
+    translate(
+      calc((var(--amg-x) - 50%) * -0.02),
+      calc((var(--amg-y) - 50%) * -0.02)
+    );
+
+  filter:
+    brightness(0.82)
+    contrast(1.12)
+    saturate(0.78);
+
+  transition:
+    transform 1.1s cubic-bezier(0.2, 0.7, 0, 1),
+    filter 0.8s ease;
+}
+
+/* =========================================
+   CAR SHADE
+========================================= */
+
+.amg-car-shade {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.72),
+      transparent 35%,
+      transparent 70%,
+      rgba(0, 0, 0, 0.58)
+    ),
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.3),
+      transparent 45%,
+      rgba(0, 0, 0, 0.72)
+    );
+
+  z-index: 2;
+}
+
+
+/* =========================================
+   MAIN TITLE
+========================================= */
+
+.amg-title {
+  position: absolute;
+
+  left: 7vw;
+  bottom: 23%;
+
+  z-index: 8;
+
+  pointer-events: none;
+}
+
+.amg-title > span {
+  display: block;
+
+  margin-bottom: 20px;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 10px;
+
+  letter-spacing: 0.25em;
+
+  color: rgba(255, 255, 255, 0.52);
+}
+
+.amg-title h2 {
+  margin: 0;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: clamp(65px, 9vw, 145px);
+
+  line-height: 0.82;
+
+  font-weight: 400;
+
+  letter-spacing: -0.065em;
+}
+
+.amg-title h2 em {
+  font-style: italic;
+
+  color: rgba(255, 255, 255, 0.72);
+}
+
+
+/* =========================================
+   AMG MARK
+========================================= */
+
+.amg-mark {
+  position: absolute;
+
+  right: 7vw;
+  top: 30%;
+
+  z-index: 9;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-end;
+
+  text-align: right;
+
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.amg-mark span {
+  font-size: 9px;
+
+  letter-spacing: 0.22em;
+
+  color: rgba(255, 255, 255, 0.42);
+}
+
+.amg-mark strong {
+  margin-top: 8px;
+
+  font-size: 12px;
+
+  letter-spacing: 0.16em;
+
+  font-weight: 500;
+}
+
+
+/* =========================================
+   CURSOR
+========================================= */
+
+.amg-cursor {
+  position: absolute;
+
+  left: var(--amg-x);
+  top: var(--amg-y);
+
+  width: 72px;
+  height: 72px;
+
+  border: 1px solid rgba(255, 255, 255, 0.6);
+
+  border-radius: 50%;
+
+  transform:
+    translate(-50%, -50%)
+    scale(0);
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  z-index: 30;
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  backdrop-filter: blur(5px);
+
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease;
+}
+
+.amg-cursor-active {
+  transform:
+    translate(-50%, -50%)
+    scale(1);
+
+  opacity: 1;
+}
+
+.amg-cursor span {
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 8px;
+
+  letter-spacing: 0.18em;
+}
+
+.amg-cursor strong {
+  margin-top: 4px;
+
+  font-size: 12px;
+
+  font-weight: 400;
+}
+
+
+/* =========================================
+   PERFORMANCE STRIP
+========================================= */
+
+.amg-performance {
+  position: absolute;
+
+  left: 6vw;
+  right: 6vw;
+  bottom: 9%;
+
+  z-index: 10;
+
+  display: grid;
+
+  grid-template-columns:
+    1fr
+    1fr
+    1fr
+    1fr;
+
+  gap: 30px;
+}
+
+.amg-performance-item {
+  position: relative;
+
+  padding-top: 16px;
+}
+
+.amg-performance-item::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+
+  height: 1px;
+
+  background: rgba(255, 255, 255, 0.13);
+}
+
+.amg-performance-item span {
+  display: block;
+
+  margin-bottom: 10px;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 8px;
+
+  letter-spacing: 0.22em;
+
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.amg-performance-item strong {
+  display: block;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 14px;
+
+  letter-spacing: 0.08em;
+
+  font-weight: 400;
+
+  color: rgba(255, 255, 255, 0.9);
+}
+
+
+/* =========================================
+   BOTTOM STATEMENT
+========================================= */
+
+.amg-bottom {
+  position: absolute;
+
+  left: 6vw;
+  right: 6vw;
+  bottom: 28px;
+
+  z-index: 10;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+}
+
+.amg-bottom-line {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  top: 50%;
+
+  height: 1px;
+
+  background: rgba(255, 255, 255, 0.07);
+
+  z-index: -1;
+}
+
+.amg-bottom p {
+  margin: 0;
+
+  padding-right: 30px;
+
+  background: #000;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 9px;
+
+  line-height: 1.6;
+
+  letter-spacing: 0.08em;
+
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.amg-bottom > span {
+  padding-left: 30px;
+
+  background: #000;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 10px;
+
+  letter-spacing: 0.25em;
+
+  color: rgba(255, 255, 255, 0.5);
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
+  .amg-visual {
+    width: 92vw;
+    height: 60vh;
+  }
+
+  .amg-title {
+    left: 6vw;
+    bottom: 25%;
+  }
+
+  .amg-performance {
+    bottom: 10%;
+  }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+  .amg-section {
+    min-height: 900px;
+
+    cursor: default;
+  }
+
+  .amg-top {
+    top: 28px;
+
+    font-size: 7px;
+  }
+
+  .amg-top span:last-child {
+    display: none;
+  }
+
+  .amg-giant-text {
+    font-size: 55vw;
+
+    top: 37%;
+  }
+
+  .amg-visual {
+    width: 100vw;
+
+    height: 50vh;
+
+    top: 42%;
+  }
+
+  .amg-title {
+    left: 7vw;
+
+    bottom: 28%;
+  }
+
+  .amg-title > span {
+    font-size: 8px;
+  }
+
+  .amg-title h2 {
+    font-size: 18vw;
+  }
+
+  .amg-mark {
+    top: 27%;
+    right: 7vw;
+  }
+
+  .amg-performance {
+    left: 7vw;
+    right: 7vw;
+
+    bottom: 9%;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 20px;
+  }
+
+  .amg-performance-item strong {
+    font-size: 11px;
+  }
+
+  .amg-bottom {
+    display: none;
+  }
+
+  .amg-cursor {
+    display: none;
+  }
+
+}

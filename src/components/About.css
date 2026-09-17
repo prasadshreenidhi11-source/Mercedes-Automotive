@@ -1,0 +1,506 @@
+/* =========================================
+   ABOUT
+========================================= */
+
+.about-section {
+  position: relative;
+
+  width: 100%;
+
+  min-height: 100vh;
+
+  padding: 170px 6vw 200px;
+
+  background: #000;
+
+  color: #fff;
+
+  overflow: hidden;
+}
+
+
+/* =========================================
+   LEFT HEADING
+========================================= */
+
+.about-heading {
+  width: min(1250px, 88vw);
+
+  margin: 0 auto 110px;
+}
+
+.about-eyebrow {
+  display: block;
+
+  margin-bottom: 30px;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 11px;
+
+  letter-spacing: 0.22em;
+
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.about-heading h2 {
+  margin: 0;
+
+  text-align: left;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: clamp(65px, 9vw, 145px);
+
+  line-height: 0.85;
+
+  font-weight: 400;
+
+  letter-spacing: -0.06em;
+}
+
+.about-heading h2 em {
+  font-style: italic;
+
+  color: rgba(255, 255, 255, 0.68);
+}
+
+
+/* =========================================
+   MAIN SPLIT
+========================================= */
+
+.about-layout {
+  width: min(1500px, 90vw);
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns: 1.35fr 0.85fr;
+
+  align-items: center;
+
+  gap: 90px;
+}
+
+
+/* =========================================
+   COVERFLOW
+========================================= */
+
+.about-coverflow {
+  position: relative;
+
+  width: 100%;
+
+  height: 620px;
+
+  perspective: 1200px;
+
+  overflow: visible;
+}
+
+
+/* =========================================
+   CARDS
+========================================= */
+
+.about-card {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: 390px;
+  height: 520px;
+
+  overflow: hidden;
+
+  transform-origin: center;
+
+  cursor: pointer;
+
+  transition:
+    transform 1s cubic-bezier(0.2, 0.7, 0, 1),
+    opacity 0.8s ease,
+    filter 0.8s ease;
+
+  background: #080808;
+}
+
+.about-card img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
+
+  transition: transform 1.2s ease;
+}
+
+
+/* =========================================
+   ACTIVE CENTER
+========================================= */
+
+.about-card-active {
+  z-index: 5;
+
+  transform:
+    translate(-50%, -50%)
+    translateX(0)
+    rotateY(0deg)
+    scale(1);
+
+  opacity: 1;
+
+  filter: brightness(0.9);
+}
+
+
+/* =========================================
+   RIGHT CARD
+========================================= */
+
+.about-card-right {
+  z-index: 3;
+
+  transform:
+    translate(-50%, -50%)
+    translateX(220px)
+    rotateY(-25deg)
+    scale(0.82);
+
+  opacity: 0.65;
+
+  filter: brightness(0.55);
+}
+
+
+/* =========================================
+   LEFT CARD
+========================================= */
+
+.about-card-left {
+  z-index: 2;
+
+  transform:
+    translate(-50%, -50%)
+    translateX(-220px)
+    rotateY(25deg)
+    scale(0.82);
+
+  opacity: 0.65;
+
+  filter: brightness(0.55);
+}
+
+
+/* =========================================
+   HOVER
+========================================= */
+
+.about-card:hover img {
+  transform: scale(1.06);
+}
+
+.about-card:hover {
+  filter: brightness(1);
+}
+
+
+/* =========================================
+   IMAGE OVERLAY
+========================================= */
+
+.about-card::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      transparent 55%,
+      rgba(0, 0, 0, 0.7)
+    );
+
+  pointer-events: none;
+}
+
+
+/* =========================================
+   CARD NUMBER
+========================================= */
+
+.about-card-overlay {
+  position: absolute;
+
+  left: 22px;
+  bottom: 20px;
+
+  z-index: 4;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 10px;
+
+  letter-spacing: 0.18em;
+
+  color: rgba(255, 255, 255, 0.7);
+}
+
+
+/* =========================================
+   RIGHT CONTENT
+========================================= */
+
+.about-content {
+  align-self: center;
+
+  max-width: 500px;
+}
+
+.about-content-label {
+  display: block;
+
+  margin-bottom: 28px;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 10px;
+
+  letter-spacing: 0.24em;
+
+  color: rgba(255, 255, 255, 0.42);
+}
+
+.about-content h3 {
+  margin: 0 0 35px;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: clamp(45px, 5vw, 76px);
+
+  line-height: 0.9;
+
+  font-weight: 400;
+
+  letter-spacing: -0.05em;
+}
+
+.about-content h3 em {
+  font-style: italic;
+
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.about-content > p {
+  max-width: 430px;
+
+  margin: 0 0 22px;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 13px;
+
+  line-height: 1.8;
+
+  color: rgba(255, 255, 255, 0.48);
+}
+
+
+/* =========================================
+   ACTIVE INFO
+========================================= */
+
+.about-active-info {
+  margin-top: 45px;
+
+  padding-top: 25px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.about-active-info > span {
+  display: block;
+
+  margin-bottom: 14px;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 11px;
+
+  letter-spacing: 0.2em;
+}
+
+.about-active-info > div {
+  width: 45px;
+
+  height: 1px;
+
+  margin-bottom: 15px;
+
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.about-active-info p {
+  margin: 0;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 12px;
+
+  line-height: 1.7;
+
+  color: rgba(255, 255, 255, 0.4);
+}
+
+
+/* =========================================
+   BUTTON
+========================================= */
+
+.about-button {
+  margin-top: 42px;
+
+  padding: 15px 22px;
+
+  background: transparent;
+
+  border: 1px solid rgba(255, 255, 255, 0.35);
+
+  color: #fff;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 9px;
+
+  letter-spacing: 0.18em;
+
+  cursor: pointer;
+
+  transition:
+    background 0.4s ease,
+    border-color 0.4s ease,
+    transform 0.4s ease;
+}
+
+.about-button span {
+  margin-left: 15px;
+
+  font-size: 14px;
+}
+
+.about-button:hover {
+  background: #fff;
+
+  border-color: #fff;
+
+  color: #000;
+
+  transform: translateY(-3px);
+}
+
+
+/* =========================================
+   BOTTOM NUMBER
+========================================= */
+
+.about-bottom-number {
+  position: absolute;
+
+  right: 6vw;
+  bottom: 55px;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 10px;
+
+  letter-spacing: 0.2em;
+
+  color: rgba(255, 255, 255, 0.3);
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1000px) {
+
+  .about-layout {
+    grid-template-columns: 1fr;
+
+    gap: 80px;
+  }
+
+  .about-content {
+    max-width: 650px;
+  }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+  .about-section {
+    padding: 110px 6vw 150px;
+  }
+
+  .about-heading {
+    margin-bottom: 70px;
+  }
+
+  .about-heading h2 {
+    font-size: 17vw;
+  }
+
+  .about-layout {
+    width: 88vw;
+
+    gap: 60px;
+  }
+
+  .about-coverflow {
+    height: 430px;
+  }
+
+  .about-card {
+    width: 250px;
+    height: 350px;
+  }
+
+  .about-card-right {
+    transform:
+      translate(-50%, -50%)
+      translateX(120px)
+      rotateY(-22deg)
+      scale(0.72);
+  }
+
+  .about-card-left {
+    transform:
+      translate(-50%, -50%)
+      translateX(-120px)
+      rotateY(22deg)
+      scale(0.72);
+  }
+
+  .about-content h3 {
+    font-size: 14vw;
+  }
+
+  .about-content > p {
+    font-size: 12px;
+  }
+
+}

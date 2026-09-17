@@ -1,0 +1,632 @@
+/* =========================================
+   LUXURY SECTION
+========================================= */
+
+.luxury-section {
+  position: relative;
+  width: 100%;
+  background: #000;
+  color: #fff;
+  overflow: hidden;
+}
+
+
+/* =========================================
+   INTRO
+========================================= */
+
+.luxury-intro {
+  width: min(1250px, 84vw);
+  margin: 0 auto;
+  padding: 150px 0 110px;
+}
+
+.luxury-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+
+  color: rgba(255, 255, 255, 0.55);
+
+  margin-bottom: 35px;
+}
+
+.luxury-eyebrow span {
+  width: 34px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.luxury-intro h2 {
+  margin: 0;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(60px, 8.5vw, 135px);
+  line-height: 0.88;
+  font-weight: 400;
+  letter-spacing: -0.055em;
+}
+
+.luxury-intro h2 em {
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.luxury-intro p {
+  width: 390px;
+  margin: 48px 0 0 auto;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 1.8;
+
+  color: rgba(255, 255, 255, 0.45);
+}
+
+
+/* =========================================
+   MAIN VISUAL
+========================================= */
+
+.luxury-visual {
+  position: relative;
+
+  width: 100%;
+  height: min(82vh, 900px);
+
+  overflow: hidden;
+
+  background: #000;
+
+  cursor: none;
+}
+
+
+/* =========================================
+   BLACK BASE
+========================================= */
+
+.luxury-car-base {
+  position: absolute;
+  inset: -5%;
+
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+
+  transform: scale(1.05);
+
+  filter:
+    brightness(0.72)
+    contrast(1.1)
+    saturate(0.8);
+
+  z-index: 1;
+}
+
+
+/* =========================================
+   INTERIOR CURSOR REVEAL
+========================================= */
+
+.luxury-interior-reveal {
+  position: absolute;
+  inset: -5%;
+
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+
+  z-index: 3;
+
+  opacity: 0;
+
+  clip-path: circle(
+    0px at var(--mouse-x) var(--mouse-y)
+  );
+
+  transform: scale(1.05);
+
+  filter:
+    brightness(0.82)
+    contrast(1.1)
+    saturate(0.8);
+
+  transition:
+    clip-path 0.12s ease-out,
+    opacity 0.25s ease;
+}
+
+.luxury-interior-reveal.is-active {
+  opacity: 1;
+
+  clip-path: circle(
+    180px at var(--mouse-x) var(--mouse-y)
+  );
+}
+
+
+/* =========================================
+   SOFT EDGE AROUND REVEAL
+========================================= */
+
+.luxury-visual::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 3;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle 220px at var(--mouse-x) var(--mouse-y),
+      transparent 0%,
+      transparent 58%,
+      rgba(0, 0, 0, 0.25) 75%,
+      rgba(0, 0, 0, 0.7) 100%
+    );
+
+  opacity: 0;
+
+  transition: opacity 0.3s ease;
+}
+
+.luxury-visual:has(.luxury-interior-reveal.is-active)::after {
+  opacity: 1;
+}
+
+
+/* =========================================
+   OVERLAY
+========================================= */
+
+.luxury-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 4;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.58),
+      rgba(0, 0, 0, 0.12) 55%,
+      rgba(0, 0, 0, 0.45)
+    ),
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.3),
+      transparent 40%,
+      rgba(0, 0, 0, 0.65)
+    );
+}
+
+
+/* =========================================
+   MAIN FLOATING TEXT
+========================================= */
+
+.luxury-main-text {
+  position: absolute;
+
+  left: 8vw;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  z-index: 8;
+
+  pointer-events: none;
+}
+
+.luxury-main-text > span {
+  display: block;
+
+  margin-bottom: 18px;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.25em;
+
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.luxury-main-text h3 {
+  margin: 0;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: clamp(60px, 8vw, 125px);
+
+  line-height: 0.87;
+  font-weight: 400;
+
+  letter-spacing: -0.055em;
+}
+
+.luxury-main-text h3 em {
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+
+/* =========================================
+   FLOATING DETAILS
+========================================= */
+
+.luxury-detail {
+  position: absolute;
+
+  z-index: 9;
+
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 22px;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  transition:
+    transform 0.7s ease,
+    opacity 0.7s ease;
+
+  pointer-events: none;
+}
+
+.luxury-detail .detail-line {
+  width: 55px;
+  height: 1px;
+
+  margin-top: 10px;
+
+  background: rgba(255, 255, 255, 0.65);
+}
+
+.luxury-detail span {
+  display: block;
+
+  margin-bottom: 10px;
+
+  font-size: 12px;
+  letter-spacing: 0.18em;
+
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.luxury-detail strong {
+  display: block;
+
+  font-size: 18px;
+  font-weight: 500;
+
+  letter-spacing: 0.16em;
+
+  color: #fff;
+}
+
+.luxury-detail p {
+  margin: 10px 0 0;
+
+  font-size: 13px;
+  line-height: 1.5;
+
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.luxury-detail-one {
+  top: 17%;
+  right: 10%;
+}
+
+.luxury-detail-two {
+  top: 50%;
+  right: 6%;
+}
+
+.luxury-detail-three {
+  bottom: 15%;
+  left: 44%;
+}
+
+
+/* =========================================
+   CURSOR REVEAL LABEL
+========================================= */
+
+.luxury-cursor {
+  position: absolute;
+
+  left: var(--mouse-x);
+  top: var(--mouse-y);
+
+  width: 76px;
+  height: 76px;
+
+  transform: translate(-50%, -50%);
+
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  border-radius: 50%;
+
+  z-index: 20;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  pointer-events: none;
+
+  opacity: 0;
+
+  transition: opacity 0.2s ease;
+}
+
+.luxury-cursor.is-active {
+  opacity: 1;
+}
+.luxury-cursor span {
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 8px;
+
+  letter-spacing: 0.18em;
+}
+
+.luxury-cursor strong {
+  margin-top: 5px;
+
+  font-size: 13px;
+
+  font-weight: 400;
+}
+
+
+/* =========================================
+   CORNER LABEL
+========================================= */
+
+.luxury-corner-label {
+  position: absolute;
+
+  right: 5vw;
+  bottom: 35px;
+
+  z-index: 10;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 20px;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 9px;
+
+  letter-spacing: 0.18em;
+
+  color: rgba(255, 255, 255, 0.55);
+
+  pointer-events: none;
+}
+
+.luxury-corner-label strong {
+  font-weight: 400;
+
+  color: rgba(255, 255, 255, 0.32);
+}
+
+
+/* =========================================
+   BOTTOM STATEMENT
+========================================= */
+
+.luxury-bottom {
+  width: min(1250px, 84vw);
+
+  margin: 0 auto;
+
+  padding: 150px 0 210px;
+
+  display: grid;
+
+  grid-template-columns: 80px 1fr;
+
+  gap: 55px;
+}
+
+.luxury-bottom-number {
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 11px;
+
+  letter-spacing: 0.15em;
+
+  color: rgba(255, 255, 255, 0.32);
+}
+
+.luxury-bottom-content > span {
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 10px;
+
+  letter-spacing: 0.25em;
+
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.luxury-bottom-content h3 {
+  margin: 28px 0 30px;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: clamp(48px, 6vw, 92px);
+
+  line-height: 0.9;
+
+  font-weight: 400;
+
+  letter-spacing: -0.05em;
+}
+
+.luxury-bottom-content h3 em {
+  font-style: italic;
+
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.luxury-bottom-content p {
+  max-width: 430px;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 13px;
+
+  line-height: 1.8;
+
+  color: rgba(255, 255, 255, 0.42);
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
+  .luxury-intro {
+    padding: 120px 0 80px;
+  }
+
+  .luxury-intro p {
+    margin: 35px 0 0;
+  }
+
+  .luxury-visual {
+    height: 70vh;
+    cursor: default;
+  }
+
+  .luxury-main-text {
+    left: 7vw;
+  }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+  .luxury-intro {
+    width: 88vw;
+    padding: 100px 0 70px;
+  }
+
+  .luxury-eyebrow {
+    font-size: 9px;
+    margin-bottom: 25px;
+  }
+
+  .luxury-eyebrow span {
+    width: 25px;
+  }
+
+  .luxury-intro h2 {
+    font-size: clamp(47px, 14vw, 75px);
+  }
+
+  .luxury-intro p {
+    width: 100%;
+    font-size: 12px;
+    margin-top: 32px;
+  }
+
+  .luxury-visual {
+    height: 75vh;
+  }
+
+  .luxury-main-text {
+    left: 7vw;
+    top: 45%;
+  }
+
+  .luxury-main-text h3 {
+    font-size: 15vw;
+  }
+
+  .luxury-detail {
+    gap: 9px;
+  }
+
+  .luxury-detail .detail-line {
+    width: 25px;
+  }
+
+  .luxury-detail strong {
+    font-size: 8px;
+  }
+
+  .luxury-detail p {
+    font-size: 8px;
+    max-width: 120px;
+  }
+
+  .luxury-detail-one {
+    top: 13%;
+    right: 5%;
+  }
+
+  .luxury-detail-two {
+    top: 61%;
+    right: 4%;
+  }
+
+  .luxury-detail-three {
+    bottom: 12%;
+    left: 8%;
+  }
+
+  .luxury-cursor {
+    display: none;
+  }
+
+  .luxury-corner-label {
+    right: 6vw;
+    bottom: 22px;
+    font-size: 7px;
+  }
+
+  .luxury-bottom {
+    width: 88vw;
+
+    grid-template-columns: 30px 1fr;
+
+    gap: 18px;
+
+    padding: 100px 0 150px;
+  }
+
+  .luxury-bottom-content h3 {
+    font-size: 13vw;
+  }
+
+  .luxury-bottom-content p {
+    font-size: 12px;
+  }
+
+}

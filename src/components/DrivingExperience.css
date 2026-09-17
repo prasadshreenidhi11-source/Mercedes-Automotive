@@ -1,0 +1,436 @@
+/* =========================================
+   DRIVING EXPERIENCE
+========================================= */
+
+.driving-section {
+  position: relative;
+  width: 100%;
+  background: #000;
+  color: #fff;
+  overflow: hidden;
+}
+
+
+/* =========================================
+   INTRO
+========================================= */
+
+.driving-intro {
+  width: min(1250px, 84vw);
+  margin: 0 auto;
+  padding: 5px 0 120px;
+}
+
+.driving-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  font-weight: 600;
+
+  color: rgba(255, 255, 255, 0.62);
+  margin-bottom: 34px;
+}
+
+.driving-eyebrow span {
+  width: 34px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.driving-intro h2 {
+  margin: 0;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(58px, 8vw, 132px);
+  line-height: 0.9;
+  font-weight: 400;
+  letter-spacing: -0.055em;
+}
+
+.driving-intro h2 em {
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.driving-intro p {
+  width: min(480px, 90%);
+  margin: 48px 0 0 auto;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 1.8;
+
+  color: rgba(255, 255, 255, 0.52);
+}
+
+
+/* =========================================
+   CINEMATIC IMAGE
+========================================= */
+
+.driving-image-wrap {
+  position: relative;
+
+  width: 100%;
+  height: min(78vh, 820px);
+
+  overflow: hidden;
+
+  background: #050505;
+}
+
+.driving-image {
+  position: absolute;
+  inset: -4%;
+
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+
+  transform: scale(1.04);
+
+  filter:
+    brightness(0.72)
+    contrast(1.12)
+    saturate(0.78);
+
+  transition:
+    transform 1.4s cubic-bezier(0.2, 0.7, 0, 1),
+    filter 1.2s ease;
+}
+
+.driving-image-wrap:hover .driving-image {
+  transform: scale(1.09);
+
+  filter:
+    brightness(0.58)
+    contrast(1.15)
+    saturate(0.72);
+}
+
+
+/* =========================================
+   IMAGE GRADIENT
+========================================= */
+
+.driving-image-overlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.48) 0%,
+      transparent 35%,
+      transparent 55%,
+      rgba(0, 0, 0, 0.78) 100%
+    );
+
+  pointer-events: none;
+}
+
+
+/* =========================================
+   IMAGE CONTENT
+========================================= */
+
+.driving-image-content {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  padding: 45px 6vw;
+}
+
+.driving-image-content > span {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.68);
+}
+
+
+/* =========================================
+   DISCOVER CIRCLE
+========================================= */
+
+.driving-circle {
+  width: 108px;
+  height: 108px;
+
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  backdrop-filter: blur(5px);
+
+  transition:
+    transform 0.6s ease,
+    background 0.6s ease,
+    border-color 0.6s ease;
+}
+
+.driving-image-wrap:hover .driving-circle {
+  transform: scale(1.12) rotate(-8deg);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.85);
+}
+
+.driving-circle span {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.16em;
+}
+
+.driving-circle strong {
+  margin-top: 7px;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+
+/* =========================================
+   EXPERIENCE POINTS
+========================================= */
+
+.driving-points {
+  width: min(1350px, 88vw);
+
+  margin: 0 auto;
+
+  padding: 150px 0 170px;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 70px;
+}
+
+.driving-point {
+  display: grid;
+  grid-template-columns: 45px 1fr;
+
+  gap: 25px;
+}
+
+.point-number {
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 11px;
+  letter-spacing: 0.12em;
+
+  color: rgba(255, 255, 255, 0.38);
+}
+
+.point-label {
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 10px;
+  letter-spacing: 0.2em;
+
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.driving-point h3 {
+  margin: 22px 0 22px;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: clamp(27px, 2.4vw, 38px);
+
+  line-height: 1.02;
+
+  font-weight: 400;
+
+  letter-spacing: -0.035em;
+}
+
+.driving-point p {
+  max-width: 280px;
+
+  margin: 0;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 13px;
+
+  line-height: 1.75;
+
+  color: rgba(255, 255, 255, 0.43);
+}
+
+
+/* =========================================
+   FINAL STATEMENT
+========================================= */
+
+.driving-statement {
+  width: min(1250px, 84vw);
+
+  margin: 0 auto;
+
+  padding: 80px 0 220px;
+
+  text-align: center;
+}
+
+.driving-statement span {
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 10px;
+
+  letter-spacing: 0.28em;
+
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.driving-statement h2 {
+  margin: 35px 0 0;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: clamp(65px, 10vw, 150px);
+
+  line-height: 0.86;
+
+  font-weight: 400;
+
+  letter-spacing: -0.06em;
+}
+
+.driving-statement h2 em {
+  font-style: italic;
+
+  color: rgba(255, 255, 255, 0.7);
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
+  .driving-intro {
+    padding: 140px 0 90px;
+  }
+
+  .driving-intro p {
+    margin: 40px 0 0;
+  }
+
+  .driving-image-wrap {
+    height: 65vh;
+  }
+
+  .driving-points {
+    grid-template-columns: 1fr;
+    gap: 75px;
+
+    padding: 120px 0;
+  }
+
+  .driving-point p {
+    max-width: 500px;
+  }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+  .driving-intro {
+    width: 88vw;
+    padding: 110px 0 70px;
+  }
+
+  .driving-eyebrow {
+    font-size: 9px;
+    margin-bottom: 25px;
+  }
+
+  .driving-eyebrow span {
+    width: 25px;
+  }
+
+  .driving-intro h2 {
+    font-size: clamp(48px, 14vw, 75px);
+  }
+
+  .driving-intro p {
+    font-size: 12px;
+    line-height: 1.7;
+    margin-top: 35px;
+  }
+
+  .driving-image-wrap {
+    height: 62vh;
+  }
+
+  .driving-image {
+    background-position: center;
+  }
+
+  .driving-image-content {
+    padding: 28px 6vw;
+  }
+
+  .driving-circle {
+    width: 82px;
+    height: 82px;
+  }
+
+  .driving-circle span {
+    font-size: 7px;
+  }
+
+  .driving-circle strong {
+    font-size: 15px;
+  }
+
+  .driving-points {
+    width: 88vw;
+    padding: 100px 0;
+    gap: 70px;
+  }
+
+  .driving-point {
+    grid-template-columns: 35px 1fr;
+    gap: 18px;
+  }
+
+  .driving-point h3 {
+    font-size: 30px;
+  }
+
+  .driving-point p {
+    font-size: 12px;
+  }
+
+  .driving-statement {
+    width: 88vw;
+    padding: 50px 0 150px;
+  }
+
+  .driving-statement h2 {
+    font-size: 19vw;
+  }
+
+}

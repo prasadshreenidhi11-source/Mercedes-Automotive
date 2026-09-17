@@ -1,0 +1,843 @@
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  background: #030303;
+}
+
+body {
+  font-family:
+    Inter,
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.benz-page {
+  position: relative;
+
+  width: 100%;
+  height: 300vh;
+
+  background: #030303;
+}
+
+.benz-sticky {
+  position: sticky;
+
+  top: 0;
+
+  width: 100%;
+  height: 100vh;
+
+  overflow: hidden;
+
+  background: #030303;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.benz-header {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 92px;
+
+  padding: 0 5vw;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  z-index: 100;
+}
+
+.benz-logo {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  font-size: 11px;
+
+  letter-spacing: 0.25em;
+
+  font-weight: 500;
+}
+
+.benz-star {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.benz-nav {
+  position: absolute;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  display: flex;
+
+  gap: 38px;
+}
+
+.benz-nav a {
+  color:#ffffff;
+
+  text-decoration: none;
+
+  font-size: 20px;
+
+  letter-spacing: 0.18em;
+
+  transition:
+    color 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.benz-nav a:hover {
+  color: #000000;
+}
+
+.benz-menu {
+  width: 44px;
+  height: 44px;
+
+  border: none;
+
+  background: transparent;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: flex-end;
+
+  gap: 7px;
+
+  cursor: pointer;
+}
+
+.benz-menu span {
+  display: block;
+
+  height: 1px;
+
+  background: #ffffff;
+
+  transition:
+    width 0.3s ease;
+}
+
+.benz-menu span:first-child {
+  width: 25px;
+}
+
+.benz-menu span:last-child {
+  width: 15px;
+}
+
+.benz-menu:hover span:last-child {
+  width: 25px;
+}
+
+
+/* =========================================================
+   SHARED SCENE
+========================================================= */
+
+.benz-scene {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100vh;
+
+  overflow: hidden;
+
+  will-change:
+    transform,
+    opacity;
+}
+
+
+/* =========================================================
+   SCENE 1
+========================================================= */
+
+.scene-one {
+  z-index: 10;
+}
+
+.scene-one-image {
+  position: absolute;
+
+  inset: 0;
+
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.7) 0%,
+      rgba(0, 0, 0, 0.22) 50%,
+      rgba(0, 0, 0, 0.5) 100%
+    ),
+    url("https://images.unsplash.com/photo-1503376780353-7e6692767b70");
+
+  background-size: cover;
+
+  background-position: center;
+
+  transform: scale(1.04);
+}
+
+.scene-one-vignette {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at center,
+      transparent 20%,
+      rgba(0, 0, 0, 0.35) 70%,
+      rgba(0, 0, 0, 0.9) 100%
+    );
+
+  pointer-events: none;
+}
+
+.scene-one-content {
+  position: absolute;
+
+  left: 8vw;
+  top: 50%;
+
+  transform: translateY(-45%);
+
+  z-index: 5;
+}
+
+.eyebrow {
+  margin: 0 0 22px;
+
+  font-size: 10px;
+
+  letter-spacing: 0.38em;
+
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.scene-one-content h1 {
+  margin: 0;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(80px, 12vw, 190px);
+
+  line-height: 0.78;
+
+  font-weight: 400;
+
+  letter-spacing: -0.07em;
+}
+
+.scene-one-content h1 span {
+  margin-left: 0.4em;
+}
+
+.scene-description {
+  margin-top: 42px;
+
+  font-size: 23px;
+
+  color: rgba(255, 255, 255, 0.62);
+
+  letter-spacing: 0.05em;
+}
+
+.discover-button {
+  margin-top: 34px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 25px;
+
+  padding: 14px 0;
+
+  background: transparent;
+
+  border: none;
+
+  color: #ffffff;
+
+  font-size: 20px;
+
+  letter-spacing: 0.22em;
+
+  cursor: pointer;
+}
+
+.discover-button span {
+  font-size: 18px;
+
+  transition:
+    transform 0.3s ease;
+}
+
+.discover-button:hover span {
+  transform:
+    translate(5px, -5px);
+}
+
+
+/* =========================================================
+   SCENE 2
+   FULL UPLOADED MERCEDES IMAGE
+========================================================= */
+
+.scene-two {
+  z-index: 20;
+
+  background: #050607;
+}
+
+
+/* =========================================================
+   COMPLETE IMAGE
+========================================================= */
+
+.ghat-road-background {
+  position: absolute;
+  inset: -5%;
+
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+
+  transform: scale(1.06);
+
+  filter:
+    brightness(0.76)
+    contrast(1.12)
+    saturate(0.78);
+
+  will-change: transform;
+
+  z-index: 1;
+}
+
+/* =========================================================
+   IMPORTANT
+   OLD SEPARATE CAR IMAGE IS HIDDEN
+========================================================= */
+
+.moving-benz {
+  display: none;
+}
+
+
+/* =========================================================
+   ATMOSPHERIC CINEMATIC LAYER
+========================================================= */
+
+.ghat-mist {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 2;
+
+  background:
+    radial-gradient(
+      ellipse at 55% 62%,
+      rgba(220, 225, 215, 0.08),
+      transparent 38%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.025),
+      transparent 35%,
+      rgba(0, 0, 0, 0.55) 100%
+    );
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   CINEMATIC DARK OVERLAY
+========================================================= */
+
+.ghat-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 3;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.82) 0%,
+      rgba(0, 0, 0, 0.45) 30%,
+      rgba(0, 0, 0, 0.08) 62%,
+      rgba(0, 0, 0, 0.42) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.5),
+      transparent 35%,
+      rgba(0, 0, 0, 0.7) 100%
+    );
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   EXTRA CINEMATIC VIGNETTE
+========================================================= */
+
+.scene-two::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 4;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at center,
+      transparent 38%,
+      rgba(0, 0, 0, 0.18) 72%,
+      rgba(0, 0, 0, 0.68) 100%
+    );
+}
+
+
+/* =========================================================
+   SCENE 2 TEXT
+========================================================= */
+
+.scene-two-content {
+  position: absolute;
+
+  z-index: 8;
+
+  left: 8vw;
+
+  top: 50%;
+
+  transform:
+    translateY(-50%);
+
+  width:
+    min(520px, 42vw);
+}
+
+.scene-two-eyebrow {
+  margin: 0 0 25px;
+
+  font-size: 10px;
+
+  letter-spacing: 0.4em;
+
+  color:
+    rgba(255, 255, 255, 0.62);
+}
+
+.scene-two-content h2 {
+  margin: 0;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(52px, 6.5vw, 100px);
+
+  line-height: 0.84;
+
+  font-weight: 400;
+
+  letter-spacing: -0.06em;
+
+  text-shadow:
+    0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.scene-two-content h2 span {
+  color:
+    rgba(255, 255, 255, 0.72);
+}
+
+.scene-two-description {
+  width: 390px;
+
+  margin-top: 34px;
+
+  font-size: 23px;
+
+  line-height: 1.8;
+
+  color:
+    rgba(255, 255, 255, 0.6);
+}
+
+
+/* =========================================================
+   CAR INFORMATION
+========================================================= */
+
+.scene-two-meta {
+  position: absolute;
+
+  z-index: 9;
+
+  left: 8vw;
+
+  bottom: 42px;
+
+  display: flex;
+
+  gap: 55px;
+}
+
+.scene-two-meta div {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 7px;
+}
+
+.scene-two-meta span {
+  font-size: 8px;
+
+  letter-spacing: 0.25em;
+
+  color:
+    rgba(255, 255, 255, 0.42);
+}
+
+.scene-two-meta strong {
+  font-size: 10px;
+
+  letter-spacing: 0.15em;
+
+  font-weight: 500;
+
+  color:
+    rgba(255, 255, 255, 0.9);
+}
+
+
+/* =========================================================
+   SCENE NUMBER
+========================================================= */
+
+.scene-one-number,
+.scene-two-number {
+  position: absolute;
+
+  right: 5vw;
+
+  bottom: 45px;
+
+  z-index: 20;
+
+  display: flex;
+
+  gap: 9px;
+
+  font-size: 9px;
+
+  letter-spacing: 0.2em;
+
+  color:
+    rgba(255, 255, 255, 0.5);
+}
+
+
+/* =========================================================
+   SCROLL INDICATOR
+========================================================= */
+
+.benz-scroll {
+  position: absolute;
+
+  z-index: 200;
+
+  left: 50%;
+
+  bottom: 35px;
+
+  transform:
+    translateX(-50%);
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+}
+
+.benz-scroll span {
+  font-size: 8px;
+
+  letter-spacing: 0.3em;
+
+  color:
+    rgba(255, 255, 255, 0.45);
+}
+
+.scroll-line {
+  width: 55px;
+
+  height: 1px;
+
+  background:
+    rgba(255, 255, 255, 0.15);
+
+  position: relative;
+}
+
+.scroll-line div {
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  width: 100%;
+
+  background: #ffffff;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .benz-header {
+    height: 75px;
+
+    padding: 0 6vw;
+  }
+
+  .benz-nav {
+    display: none;
+  }
+
+  .benz-logo {
+    font-size: 9px;
+  }
+
+
+  /* =======================================================
+     SCENE 1
+  ======================================================= */
+
+  .scene-one-content {
+    left: 7vw;
+  }
+
+  .scene-one-content h1 {
+    font-size: 23vw;
+  }
+
+  .scene-description {
+    font-size: 11px;
+  }
+
+
+  /* =======================================================
+     SCENE 2 IMAGE
+  ======================================================= */
+
+  .ghat-road-background {
+    inset: -5%;
+
+    /*
+       Move image slightly to the right on mobile
+       so the Mercedes remains visible.
+    */
+
+    background-position:
+      58% center;
+
+    transform:
+      scale(1.1);
+
+    filter:
+      brightness(0.7)
+      contrast(1.1)
+      saturate(0.75);
+  }
+
+
+  /* =======================================================
+     MOBILE OVERLAY
+  ======================================================= */
+
+  .ghat-overlay {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.68) 0%,
+        rgba(0, 0, 0, 0.16) 38%,
+        rgba(0, 0, 0, 0.82) 100%
+      );
+  }
+
+
+  /* =======================================================
+     SCENE 2 TEXT
+  ======================================================= */
+
+  .scene-two-content {
+    left: 7vw;
+
+    top: 20%;
+
+    width: 86vw;
+
+    transform: none;
+  }
+
+  .scene-two-content h2 {
+    font-size: 15vw;
+
+    line-height: 0.84;
+  }
+
+  .scene-two-description {
+    margin-top: 25px;
+
+    width: 250px;
+
+    font-size: 11px;
+  }
+
+
+  /* =======================================================
+     META
+  ======================================================= */
+
+  .scene-two-meta {
+    left: 7vw;
+
+    bottom: 30px;
+
+    gap: 22px;
+  }
+
+  .scene-two-meta strong {
+    font-size: 8px;
+  }
+
+
+  /* =======================================================
+     NUMBER
+  ======================================================= */
+
+  .scene-two-number {
+    right: 7vw;
+
+    bottom: 30px;
+  }
+
+
+  /* =======================================================
+     HIDE SCROLL
+  ======================================================= */
+
+  .benz-scroll {
+    display: none;
+  }
+}
+
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 900px) {
+
+  /* ===============================
+     SCENE 1 — MOBILE
+  =============================== */
+
+  .scene-one-background {
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+
+    background-size: contain !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+
+    transform: none !important;
+  }
+
+
+  /* ===============================
+     SCENE 2 — MOBILE
+  =============================== */
+
+  .ghat-road-background {
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+
+    background-size: contain !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+
+    transform: none !important;
+  }
+
+}
